@@ -44,18 +44,35 @@ public class AlquilerServiceImpl implements AlquilerService {
         if (alquilerDTO == null) {
             throw new IllegalArgumentException("El alquiler no puede ser nulo");
         }
-
         Empresa empresa = empresaRepository.findById(alquilerDTO.getEmpresaId())
                 .orElseThrow(() -> new ResourceNotFoundException("Empresa no encontrada con ID: " + alquilerDTO.getEmpresaId()));
 
+        if (alquilerDTO.getDetalles()== null || alquilerDTO.getDetalles().isEmpty()) {
+            throw new ResourceValidationException("El alquiler debe tener al menos un detalle");
+        }
         Alquiler alquiler = new Alquiler();
         alquiler.setFechaSalida(alquilerDTO.getFechaSalida());
         alquiler.setFechaEntrada(alquilerDTO.getFechaEntrada());
         alquiler.setObservacion(alquilerDTO.getObservacion());
         alquiler.setEmpresaId(empresa);
 
-        alquiler.setDetalles(new ArrayList<>());
+        List<Detalle> detalles = new ArrayList<>();
+        for (DetalleDTO d : alquilerDTO.getDetalles()) {
+            if (d.getPrecio() == null || d.getPrecio().compareTo(BigDecimal.ZERO) <= 0) {
+                throw new ResourceValidationException("El precio debe ser mayor que 0");
+            }
+            Equipo equipo = equipoRepository.findById(d.getEquipoId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Equipo no encontrado con ID: " + d.getEquipoId()));
 
+            Detalle detalle = new Detalle();
+            detalle.setAlquilerId(alquiler);
+            detalle.setEquipoId(equipo);
+            detalle.setPrecio(d.getPrecio());
+            detalle.setCantidad(d.getCantidad());
+
+            detalles.add(detalle);
+        }
+        alquiler.setDetalles(detalles);
         Alquiler guardada = alquilerRepository.save(alquiler);
         return alquilerMapper.toDTO(guardada);
     }
@@ -66,24 +83,44 @@ public class AlquilerServiceImpl implements AlquilerService {
         if (aLong == null || alquilerDTO == null) {
             throw new IllegalArgumentException("El ID y el alquiler no pueden ser nulos");
         }
-
         Alquiler alquilerExistente = alquilerRepository.findById(aLong)
                 .orElseThrow(() -> new ResourceNotFoundException("Alquiler no encontrado con ID: " + aLong));
 
         Empresa empresa = empresaRepository.findById(alquilerDTO.getEmpresaId())
                 .orElseThrow(() -> new ResourceNotFoundException("Empresa no encontrada con ID: " + alquilerDTO.getEmpresaId()));
 
+        if (alquilerDTO.getDetalles() == null || alquilerDTO.getDetalles().isEmpty()) {
+            throw new ResourceValidationException("El alquiler debe tener al menos un detalle");
+        }
         alquilerExistente.setFechaSalida(alquilerDTO.getFechaSalida() != null ? alquilerDTO.getFechaSalida() : alquilerExistente.getFechaSalida());
         alquilerExistente.setFechaEntrada(alquilerDTO.getFechaEntrada() != null ? alquilerDTO.getFechaEntrada() : alquilerExistente.getFechaEntrada());
         alquilerExistente.setObservacion(alquilerDTO.getObservacion() != null ? alquilerDTO.getObservacion() : alquilerExistente.getObservacion());
         alquilerExistente.setEmpresaId(empresa);
+        alquilerExistente.getDetalles().clear();
+        List<Detalle> nuevosDetalles = new ArrayList<>();
 
+        for (DetalleDTO d : alquilerDTO.getDetalles()) {
 
+            if (d.getPrecio() == null || d.getPrecio().compareTo(BigDecimal.ZERO) <= 0) {
+                throw new ResourceValidationException("El precio debe ser mayor que 0");
+            }
+
+            Equipo equipo = equipoRepository.findById(d.getEquipoId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Equipo no encontrado con ID: " + d.getEquipoId()));
+
+            Detalle detalle = new Detalle();
+            detalle.setAlquilerId(alquilerExistente);
+            detalle.setEquipoId(equipo);
+            detalle.setPrecio(d.getPrecio());
+            detalle.setCantidad(d.getCantidad());
+
+            nuevosDetalles.add(detalle);
+        }
+
+        alquilerExistente.setDetalles(nuevosDetalles);
         Alquiler actualizada = alquilerRepository.save(alquilerExistente);
         return alquilerMapper.toDTO(actualizada);
     }
-
-
 
     @Transactional(readOnly = true)
     @Override

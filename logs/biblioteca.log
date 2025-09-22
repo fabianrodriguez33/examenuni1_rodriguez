@@ -387,3 +387,70 @@ https://docs.oracle.com/error-help/db/ora-01400/
 2025-09-22T17:56:04.595-05:00  INFO 8000 --- [examenuni1_rodriguez] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-09-22T17:56:04.598-05:00  INFO 8000 --- [examenuni1_rodriguez] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-09-22T17:56:04.618-05:00  INFO 8000 --- [examenuni1_rodriguez] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-22T17:58:51.683-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] c.e.e.Examenuni1RodriguezApplication     : Starting Examenuni1RodriguezApplication using Java 21.0.7 with PID 2852 (C:\Users\Usuario\Downloads\examenuni1_rodriguez\examenuni1_rodriguez\target\classes started by Usuario in C:\Users\Usuario\Downloads\examenuni1_rodriguez\examenuni1_rodriguez)
+2025-09-22T17:58:51.686-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] c.e.e.Examenuni1RodriguezApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-09-22T17:58:52.991-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-22T17:58:53.166-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156 ms. Found 4 JPA repository interfaces.
+2025-09-22T17:58:53.974-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-09-22T17:58:53.990-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-22T17:58:53.991-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-09-22T17:58:54.069-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-22T17:58:54.070-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2318 ms
+2025-09-22T17:58:54.440-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-22T17:58:54.531-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-09-22T17:58:54.579-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-22T17:58:54.920-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-22T17:58:54.954-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-22T17:58:55.581-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@14590fe2
+2025-09-22T17:58:55.584-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-22T17:58:55.977-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 21.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-22T17:58:57.516-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-22T17:58:57.792-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-22T17:58:59.249-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-09-22T17:58:59.260-05:00  INFO 2852 --- [examenuni1_rodriguez] [main] c.e.e.Examenuni1RodriguezApplication     : Started Examenuni1RodriguezApplication in 8.368 seconds (process running for 9.508)
+2025-09-22T17:59:02.054-05:00  INFO 2852 --- [examenuni1_rodriguez] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-22T17:59:02.055-05:00  INFO 2852 --- [examenuni1_rodriguez] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-22T17:59:02.057-05:00  INFO 2852 --- [examenuni1_rodriguez] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-09-22T18:00:57.458-05:00  INFO 2852 --- [examenuni1_rodriguez] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-22T18:00:57.477-05:00  INFO 2852 --- [examenuni1_rodriguez] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-09-22T18:00:57.484-05:00  INFO 2852 --- [examenuni1_rodriguez] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-09-22T18:00:57.487-05:00  INFO 2852 --- [examenuni1_rodriguez] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-22T18:00:57.504-05:00  INFO 2852 --- [examenuni1_rodriguez] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-22T18:02:53.910-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] c.e.e.Examenuni1RodriguezApplication     : Starting Examenuni1RodriguezApplication using Java 21.0.7 with PID 10732 (C:\Users\Usuario\Downloads\examenuni1_rodriguez\examenuni1_rodriguez\target\classes started by Usuario in C:\Users\Usuario\Downloads\examenuni1_rodriguez\examenuni1_rodriguez)
+2025-09-22T18:02:53.916-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] c.e.e.Examenuni1RodriguezApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-09-22T18:02:54.794-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-22T18:02:54.995-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 179 ms. Found 4 JPA repository interfaces.
+2025-09-22T18:02:55.811-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-09-22T18:02:55.833-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-22T18:02:55.834-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-09-22T18:02:55.915-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-22T18:02:55.917-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1942 ms
+2025-09-22T18:02:56.283-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-22T18:02:56.348-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-09-22T18:02:56.392-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-22T18:02:56.798-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-22T18:02:56.835-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-22T18:02:57.589-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@645ba24a
+2025-09-22T18:02:57.591-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-22T18:02:58.046-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 21.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-22T18:02:59.650-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-22T18:02:59.910-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-22T18:03:01.363-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-09-22T18:03:01.378-05:00  INFO 10732 --- [examenuni1_rodriguez] [main] c.e.e.Examenuni1RodriguezApplication     : Started Examenuni1RodriguezApplication in 8.217 seconds (process running for 9.275)
+2025-09-22T18:03:08.856-05:00  INFO 10732 --- [examenuni1_rodriguez] [http-nio-9090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-22T18:03:08.857-05:00  INFO 10732 --- [examenuni1_rodriguez] [http-nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-22T18:03:08.860-05:00  INFO 10732 --- [examenuni1_rodriguez] [http-nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms

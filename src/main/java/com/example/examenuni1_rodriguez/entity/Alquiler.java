@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -34,7 +35,7 @@ public class Alquiler {
     @JoinColumn(name = "EMPRESA_ID")
     private Empresa empresaId;
 
-    @OneToMany(mappedBy = "alquilerId", orphanRemoval = true)
-    private List<Detalle> detalles;
+    @OneToMany(mappedBy = "alquilerId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Detalle> detalles = new ArrayList<>();
 
 }
