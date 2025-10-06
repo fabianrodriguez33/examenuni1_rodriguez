@@ -92,15 +92,18 @@ public class AlquilerServiceImpl implements AlquilerService {
         if (alquilerDTO.getDetalles() == null || alquilerDTO.getDetalles().isEmpty()) {
             throw new ResourceValidationException("El alquiler debe tener al menos un detalle");
         }
+
+        // Actualizar campos simples (tu lógica, pero simplificada: usa el valor del DTO si no es null)
         alquilerExistente.setFechaSalida(alquilerDTO.getFechaSalida() != null ? alquilerDTO.getFechaSalida() : alquilerExistente.getFechaSalida());
         alquilerExistente.setFechaEntrada(alquilerDTO.getFechaEntrada() != null ? alquilerDTO.getFechaEntrada() : alquilerExistente.getFechaEntrada());
         alquilerExistente.setObservacion(alquilerDTO.getObservacion() != null ? alquilerDTO.getObservacion() : alquilerExistente.getObservacion());
         alquilerExistente.setEmpresaId(empresa);
-        alquilerExistente.getDetalles().clear();
-        List<Detalle> nuevosDetalles = new ArrayList<>();
 
+        // MANEJO DE DETALLES: CRUCIAL - Modifica la MISMA colección
+        alquilerExistente.getDetalles().clear();  // Limpia la original (borra huérfanos)
+
+        // NO crees una nueva lista. Agrega directamente a la existente
         for (DetalleDTO d : alquilerDTO.getDetalles()) {
-
             if (d.getPrecio() == null || d.getPrecio().compareTo(BigDecimal.ZERO) <= 0) {
                 throw new ResourceValidationException("El precio debe ser mayor que 0");
             }
@@ -109,15 +112,15 @@ public class AlquilerServiceImpl implements AlquilerService {
                     .orElseThrow(() -> new ResourceNotFoundException("Equipo no encontrado con ID: " + d.getEquipoId()));
 
             Detalle detalle = new Detalle();
-            detalle.setAlquilerId(alquilerExistente);
+            detalle.setAlquilerId(alquilerExistente);  // Referencia inversa
             detalle.setEquipoId(equipo);
             detalle.setPrecio(d.getPrecio());
             detalle.setCantidad(d.getCantidad());
 
-            nuevosDetalles.add(detalle);
+            alquilerExistente.getDetalles().add(detalle);  // <-- ¡AGREGA A LA ORIGINAL!
         }
 
-        alquilerExistente.setDetalles(nuevosDetalles);
+        // NO uses setDetalles() aquí. Cascade se encarga del resto
         Alquiler actualizada = alquilerRepository.save(alquilerExistente);
         return alquilerMapper.toDTO(actualizada);
     }
